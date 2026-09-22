@@ -17,10 +17,10 @@ import { FEATURES_DATA, BENEFITS_DATA } from '../data/schoolData';
 import { FeatureItem, BenefitItem } from '../types';
 
 interface FeaturesAndBenefitsProps {
-  onOpenAdmission: () => void;
+  onOpenAdmission?: () => void;
 }
 
-export const FeaturesAndBenefits: React.FC<FeaturesAndBenefitsProps> = ({ onOpenAdmission }) => {
+export const FeaturesAndBenefits: React.FC<FeaturesAndBenefitsProps> = () => {
   const [activeTab, setActiveTab] = useState<'all' | 'features' | 'benefits'>('all');
 
   const getIcon = (name: string, className: string = 'w-6 h-6') => {
@@ -232,13 +232,13 @@ export const FeaturesAndBenefits: React.FC<FeaturesAndBenefitsProps> = ({ onOpen
           </div>
 
           <div className="flex-shrink-0 flex items-center gap-3">
-            <button
-              onClick={onOpenAdmission}
+            <a
+              href="#contact"
               className="px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-sm uppercase tracking-wide rounded-xl shadow-lg transition-transform hover:scale-105 cursor-pointer flex items-center gap-2"
             >
               <span>ENROLL NOW</span>
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </a>
           </div>
         </div>
 

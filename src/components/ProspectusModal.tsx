@@ -151,11 +151,14 @@ export const ProspectusModal: React.FC<ProspectusModalProps> = ({
             <button
               onClick={() => {
                 onClose();
-                onOpenAdmission();
+                const contactEl = document.getElementById('contact');
+                if (contactEl) {
+                  contactEl.scrollIntoView({ behavior: 'smooth' });
+                }
               }}
               className="px-5 py-2.5 text-xs font-black uppercase tracking-wider text-slate-950 bg-amber-400 hover:bg-amber-500 rounded-xl shadow transition-colors cursor-pointer flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
             >
-              <span>Apply Online</span>
+              <span>Visit Campus / Inquire</span>
             </button>
           </div>
         </div>

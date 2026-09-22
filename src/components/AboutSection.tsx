@@ -13,10 +13,10 @@ import { SCHOOL_INFO } from '../data/schoolData';
 import { SchoolLogo } from './SchoolLogo';
 
 interface AboutSectionProps {
-  onOpenAdmission: () => void;
+  onOpenAdmission?: () => void;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenAdmission }) => {
+export const AboutSection: React.FC<AboutSectionProps> = () => {
   return (
     <section id="about" className="py-16 md:py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,12 +78,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenAdmission }) =
             </div>
 
             <div className="pt-2">
-              <button
-                onClick={onOpenAdmission}
-                className="px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-md transition-colors cursor-pointer"
+              <a
+                href="#contact"
+                className="inline-block px-6 py-3 bg-blue-700 hover:bg-blue-800 text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-md transition-colors cursor-pointer"
               >
                 Enroll Your Child Today
-              </button>
+              </a>
             </div>
           </div>
 

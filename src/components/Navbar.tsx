@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, MapPin, Menu, X, GraduationCap, Clock } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Menu, X, GraduationCap } from 'lucide-react';
 import { SchoolLogo } from './SchoolLogo';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 interface NavbarProps {
-  onOpenAdmission: () => void;
   onOpenProspectus: () => void;
-  submittedCount: number;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
-  onOpenAdmission,
-  onOpenProspectus,
-  submittedCount,
-}) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenProspectus }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
-      {/* Top Announcement Bar - Recreating the Yellow & Blue aesthetic */}
+      {/* Top Announcement Bar - Yellow & Blue aesthetic from flyer */}
       <div className="bg-gradient-to-r from-blue-700 via-sky-600 to-blue-700 text-white text-xs md:text-sm py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex items-center gap-2 text-center sm:text-left">
@@ -94,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={onOpenProspectus}
-              className="text-xs md:text-sm font-semibold text-slate-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors border border-slate-200"
+              className="text-xs md:text-sm font-semibold text-slate-600 hover:text-blue-600 px-3 py-2 rounded-lg hover:bg-slate-100 transition-colors border border-slate-200 cursor-pointer"
             >
               Prospectus
             </button>
@@ -107,28 +101,23 @@ export const Navbar: React.FC<NavbarProps> = ({
               <span>{SCHOOL_INFO.phoneFormatted}</span>
             </a>
 
-            <button
-              onClick={onOpenAdmission}
+            <a
+              href="#contact"
               className="relative inline-flex items-center justify-center gap-2 px-5 py-2.5 text-xs md:text-sm font-extrabold uppercase tracking-wide text-slate-900 bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 rounded-lg shadow-md hover:shadow-lg transition-all active:scale-95 border border-amber-300 cursor-pointer"
             >
               <GraduationCap className="w-4 h-4 text-slate-900" />
               <span>ENROLL NOW</span>
-              {submittedCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-blue-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">
-                  {submittedCount}
-                </span>
-              )}
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex sm:hidden items-center gap-2">
-            <button
-              onClick={onOpenAdmission}
+            <a
+              href="#contact"
               className="px-3 py-1.5 text-xs font-black uppercase text-slate-900 bg-amber-400 rounded-md shadow-sm"
             >
               ENROLL
-            </button>
+            </a>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none"
@@ -178,27 +167,25 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="px-3 py-2 rounded-md hover:bg-slate-100 text-emerald-700 flex items-center gap-2"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-              Quran Education & Tajweed
+              Quran Education &amp; Tajweed
             </a>
             <a
               href="#contact"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-md hover:bg-slate-100"
             >
-              Contact & Location
+              Contact &amp; Location
             </a>
           </div>
 
           <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenAdmission();
-              }}
-              className="w-full py-3 text-center text-sm font-extrabold uppercase text-slate-900 bg-amber-400 hover:bg-amber-500 rounded-lg shadow-md"
+            <a
+              href="#contact"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 text-center text-sm font-extrabold uppercase text-slate-900 bg-amber-400 hover:bg-amber-500 rounded-lg shadow-md block"
             >
               🎓 ENROLL NOW - ADMISSIONS OPEN
-            </button>
+            </a>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -208,6 +195,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               📄 View School Prospectus
             </button>
+
             <div className="grid grid-cols-2 gap-2 mt-1">
               <a
                 href={`tel:${SCHOOL_INFO.phone}`}

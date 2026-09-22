@@ -1,14 +1,13 @@
 import React from 'react';
-import { Phone, MessageCircle, MapPin, Clock, Heart, Shield, ArrowUp } from 'lucide-react';
+import { Phone, MessageCircle, MapPin, Clock, ArrowUp } from 'lucide-react';
 import { SchoolLogo } from './SchoolLogo';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 interface FooterProps {
-  onOpenAdmission: () => void;
   onOpenProspectus: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenAdmission, onOpenProspectus }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenProspectus }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -23,22 +22,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmission, onOpenProspectu
           {/* Col 1: Identity & Motto */}
           <div className="lg:col-span-5 space-y-4">
             <SchoolLogo size="md" lightText={true} showText={true} />
-            <p className="text-amber-300 font-serif-crest text-lg font-bold italic pt-1">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
+              Dedicated to academic excellence, disciplined character development, and comprehensive Quranic studies for the children of Bijar and surrounding areas.
+            </p>
+            <div className="pt-2 text-xs text-amber-300 font-semibold italic">
               &ldquo;{SCHOOL_INFO.tagline}&rdquo;
-            </p>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-md leading-relaxed">
-              Empowering children in Bijar with modern conceptual education, qualified educators, foundational Quran studies with Tajweed, and character grooming.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              <span className="text-xs bg-slate-800 text-sky-300 px-3 py-1 rounded-md border border-slate-700">
-                Professional Teachers
-              </span>
-              <span className="text-xs bg-slate-800 text-emerald-300 px-3 py-1 rounded-md border border-slate-700">
-                Quran Education
-              </span>
-              <span className="text-xs bg-slate-800 text-amber-300 px-3 py-1 rounded-md border border-slate-700">
-                Individual Development
-              </span>
             </div>
           </div>
 
@@ -122,12 +110,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAdmission, onOpenProspectu
             </div>
 
             <div className="pt-2">
-              <button
-                onClick={onOpenAdmission}
-                className="w-full py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider rounded-lg shadow transition-colors cursor-pointer"
+              <a
+                href="#contact"
+                className="w-full py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs uppercase tracking-wider rounded-lg shadow transition-colors flex items-center justify-center cursor-pointer"
               >
-                Apply Online / Enroll Now
-              </button>
+                Inquire / Visit Campus Now
+              </a>
             </div>
           </div>
 

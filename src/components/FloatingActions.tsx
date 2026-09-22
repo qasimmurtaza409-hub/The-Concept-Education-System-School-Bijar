@@ -2,22 +2,18 @@ import React from 'react';
 import { Phone, MessageCircle, GraduationCap } from 'lucide-react';
 import { SCHOOL_INFO } from '../data/schoolData';
 
-interface FloatingActionsProps {
-  onOpenAdmission: () => void;
-}
-
-export const FloatingActions: React.FC<FloatingActionsProps> = ({ onOpenAdmission }) => {
+export const FloatingActions: React.FC = () => {
   return (
     <aside aria-label="Quick contact actions" className="fixed bottom-4 right-4 z-40 flex flex-col gap-2.5 items-end">
-      {/* Quick Enroll Floating Button */}
-      <button
-        onClick={onOpenAdmission}
+      {/* Quick Enroll Floating Button - Scroll to Contact */}
+      <a
+        href="#contact"
         className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-500 hover:to-yellow-500 text-slate-950 font-black text-xs uppercase tracking-wider rounded-full shadow-xl hover:shadow-2xl border-2 border-white transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
-        title="Open Online Admission Form"
+        title="Contact School / Admissions Desk"
       >
         <GraduationCap className="w-4 h-4 text-slate-950" />
         <span className="hidden sm:inline">Enroll Now</span>
-      </button>
+      </a>
 
       {/* Floating WhatsApp Action */}
       <a

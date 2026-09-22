@@ -13,10 +13,10 @@ import { ACADEMIC_PROGRAMS } from '../data/schoolData';
 import { ProgramInfo } from '../types';
 
 interface ProgramsSectionProps {
-  onOpenAdmission: () => void;
+  onOpenAdmission?: () => void;
 }
 
-export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenAdmission }) => {
+export const ProgramsSection: React.FC<ProgramsSectionProps> = () => {
   const [selectedProgram, setSelectedProgram] = useState<ProgramInfo>(ACADEMIC_PROGRAMS[0]);
 
   const getProgramIcon = (id: string) => {
@@ -159,13 +159,13 @@ export const ProgramsSection: React.FC<ProgramsSectionProps> = ({ onOpenAdmissio
                 </ul>
 
                 <div className="mt-6 pt-4 border-t border-white/15">
-                  <button
-                    onClick={onOpenAdmission}
+                  <a
+                    href="#contact"
                     className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg transition-transform hover:scale-102 flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <span>Apply For {selectedProgram.badge}</span>
+                    <span>Inquire For {selectedProgram.badge}</span>
                     <ArrowRight className="w-4 h-4 text-slate-950" />
-                  </button>
+                  </a>
                 </div>
               </div>
 

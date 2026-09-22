@@ -6,6 +6,7 @@ export const SCHOOL_INFO = {
   fullName: 'The Concept Education System Bijar',
   tagline: 'Your Kids Deserve The Best Education',
   motto: 'Knowledge, Character, Faith & Excellence',
+  description: 'A premier educational institution in Bijar combining conceptual academic mastery with dedicated Quranic education, certified professional teachers, and holistic individual student development.',
   phone: '03049315158',
   phoneFormatted: '0304-9315158',
   phoneInternational: '+923049315158',

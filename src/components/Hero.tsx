@@ -16,11 +16,10 @@ import { SchoolLogo } from './SchoolLogo';
 import { SCHOOL_INFO } from '../data/schoolData';
 
 interface HeroProps {
-  onOpenAdmission: () => void;
   onOpenProspectus: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenAdmission, onOpenProspectus }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenProspectus }) => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-700 via-sky-700 to-blue-800 text-white pt-10 pb-16 md:pt-16 md:pb-24">
       {/* Decorative Background Elements (Radiant Sun motif inspired by the flyer) */}
@@ -61,48 +60,46 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdmission, onOpenProspectus })
               </div>
             </div>
 
-            {/* The Iconic Tagline from the Flyer */}
-            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-amber-300 italic tracking-wide">
+            {/* Core Tagline from Flyer */}
+            <p className="text-lg sm:text-xl md:text-2xl font-bold text-yellow-300 tracking-wide font-sans">
               &ldquo;{SCHOOL_INFO.tagline}&rdquo;
             </p>
 
-            {/* Core Value Proposition */}
-            <p className="text-base sm:text-lg text-sky-100 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Welcome to the premier educational institution in Bijar. We blend modern conceptual academics, certified professional educators, and essential life skills with foundational Quranic education and moral grooming.
+            <p className="text-sm sm:text-base text-sky-100 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              {SCHOOL_INFO.description}
             </p>
 
-            {/* Quick 4-Pillar Bullets from Flyer */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 max-w-2xl mx-auto lg:mx-0 text-xs sm:text-sm">
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                <span className="font-semibold text-white">Professional Teachers</span>
+            {/* Quick 4 Highlights from Flyer */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2">
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-2.5 text-center border border-white/15">
+                <span className="block text-amber-300 font-extrabold text-xs uppercase tracking-wider">Teachers</span>
+                <span className="text-xs text-white/90 font-medium">Professional &amp; Caring</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-emerald-300 flex-shrink-0" />
-                <span className="font-semibold text-white">Quran Education</span>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-2.5 text-center border border-white/15">
+                <span className="block text-amber-300 font-extrabold text-xs uppercase tracking-wider">Quran</span>
+                <span className="text-xs text-white/90 font-medium">Tajweed &amp; Ethics</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-amber-300 flex-shrink-0" />
-                <span className="font-semibold text-white">Interactive Learning</span>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-2.5 text-center border border-white/15">
+                <span className="block text-amber-300 font-extrabold text-xs uppercase tracking-wider">Learning</span>
+                <span className="text-xs text-white/90 font-medium">Concept Based</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-2 rounded-lg border border-white/15">
-                <CheckCircle2 className="w-4 h-4 text-sky-300 flex-shrink-0" />
-                <span className="font-semibold text-white">Child Development</span>
+              <div className="bg-white/10 backdrop-blur-md rounded-xl p-2.5 text-center border border-white/15">
+                <span className="block text-amber-300 font-extrabold text-xs uppercase tracking-wider">Growth</span>
+                <span className="text-xs text-white/90 font-medium">Individual Focus</span>
               </div>
             </div>
 
-            {/* High-Impact Actions */}
-            <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              {/* Flyer's prominent yellow "ENROLL NOW" button */}
-              <button
+            {/* CTA Buttons */}
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <a
                 id="hero-enroll-btn"
-                onClick={onOpenAdmission}
+                href="#contact"
                 className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-base sm:text-lg font-black uppercase tracking-wider text-slate-950 bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-400 hover:from-yellow-400 hover:to-amber-500 rounded-xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 border-2 border-amber-300 cursor-pointer"
               >
                 <GraduationCap className="w-5 h-5 text-slate-950" />
                 <span>ENROLL NOW</span>
                 <ArrowRight className="w-4 h-4 text-slate-950" />
-              </button>
+              </a>
 
               <button
                 id="hero-prospectus-btn"
@@ -150,52 +147,54 @@ export const Hero: React.FC<HeroProps> = ({ onOpenAdmission, onOpenProspectus })
                 Official Campus Portal
               </div>
 
-              {/* Centered Crest */}
-              <div className="flex flex-col items-center text-center mt-2">
-                <SchoolLogo size="xl" showText={false} />
-                <h3 className="text-xl font-bold font-serif-crest text-slate-900 mt-3 leading-snug">
-                  The Concept Education System
-                </h3>
-                <p className="text-xs uppercase font-extrabold text-blue-700 tracking-widest mt-0.5">
-                  Bijar Campus • Est. Excellence
-                </p>
-                <p className="text-xs text-slate-600 mt-2 italic font-medium">
-                  {SCHOOL_INFO.tagline}
-                </p>
+              {/* Large Central Emblem */}
+              <div className="flex flex-col items-center text-center mt-2 space-y-4">
+                <div className="transform hover:scale-105 transition-transform duration-300">
+                  <SchoolLogo size="xl" showText={false} />
+                </div>
+
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-black font-serif-crest text-blue-900 uppercase tracking-tight">
+                    The Concept
+                  </h3>
+                  <h4 className="text-base sm:text-lg font-bold text-amber-600 uppercase tracking-wider">
+                    Education System
+                  </h4>
+                  <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest mt-1">
+                    Bijar Campus • Est. Excellence
+                  </p>
+                </div>
               </div>
 
-              {/* Quick Admission Overview Box */}
-              <div className="mt-5 p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2.5 text-xs text-slate-700">
-                <div className="flex justify-between items-center pb-2 border-b border-slate-200">
-                  <span className="font-semibold text-slate-500">Status:</span>
-                  <span className="font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
-                    Admissions Open
-                  </span>
+              {/* Flyer Badges Grid */}
+              <div className="mt-6 pt-5 border-t border-slate-100 grid grid-cols-2 gap-3 text-left">
+                <div className="flex items-start gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-semibold text-slate-700">Professional Teachers</span>
                 </div>
-                <div className="flex justify-between items-center pb-2 border-b border-slate-200">
-                  <span className="font-semibold text-slate-500">Offered Classes:</span>
-                  <span className="font-bold text-slate-800">Playgroup to Middle / Secondary</span>
+                <div className="flex items-start gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-semibold text-slate-700">Quran Education</span>
                 </div>
-                <div className="flex justify-between items-center pb-2 border-b border-slate-200">
-                  <span className="font-semibold text-slate-500">Core Focus:</span>
-                  <span className="font-bold text-blue-700">Concept Learning & Quran</span>
+                <div className="flex items-start gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-semibold text-slate-700">Group Activities</span>
                 </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold text-slate-500">Location:</span>
-                  <span className="font-medium text-slate-800 text-right">Near Madni Public Model High School</span>
+                <div className="flex items-start gap-2 text-xs">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span className="font-semibold text-slate-700">Interactive Learning</span>
                 </div>
               </div>
 
               {/* Direct Card Action */}
               <div className="mt-5 space-y-2">
-                <button
-                  onClick={onOpenAdmission}
+                <a
+                  href="#contact"
                   className="w-full py-3 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-sm uppercase tracking-wide rounded-xl shadow transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Sparkles className="w-4 h-4 text-slate-950" />
-                  <span>Start Admission Application</span>
-                </button>
+                  <span>Visit Campus / Inquire Now</span>
+                </a>
                 <div className="text-center">
                   <a
                     href={`tel:${SCHOOL_INFO.phone}`}

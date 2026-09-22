@@ -1,25 +1,3 @@
-export interface AdmissionFormData {
-  studentName: string;
-  fatherName: string;
-  gender: 'male' | 'female';
-  dateOfBirth: string;
-  grade: string;
-  parentPhone: string;
-  whatsappSame: boolean;
-  parentWhatsapp?: string;
-  address: string;
-  previousSchool?: string;
-  emergencyContact?: string;
-  notes?: string;
-}
-
-export interface SubmittedApplication extends AdmissionFormData {
-  id: string;
-  submissionDate: string;
-  status: 'Pending Review' | 'Interview Scheduled' | 'Confirmed';
-  trackingNumber: string;
-}
-
 export interface ProgramInfo {
   id: string;
   title: string;

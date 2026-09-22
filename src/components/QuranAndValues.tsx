@@ -3,10 +3,10 @@ import { BookOpen, Star, Sparkles, Check, Heart, Shield, Award } from 'lucide-re
 import { SCHOOL_INFO } from '../data/schoolData';
 
 interface QuranAndValuesProps {
-  onOpenAdmission: () => void;
+  onOpenAdmission?: () => void;
 }
 
-export const QuranAndValues: React.FC<QuranAndValuesProps> = ({ onOpenAdmission }) => {
+export const QuranAndValues: React.FC<QuranAndValuesProps> = () => {
   return (
     <section id="quran" className="py-16 md:py-24 bg-gradient-to-b from-emerald-950 via-teal-950 to-slate-950 text-white relative overflow-hidden">
       {/* Subtle Islamic geometric style background ornament */}
@@ -83,13 +83,13 @@ export const QuranAndValues: React.FC<QuranAndValuesProps> = ({ onOpenAdmission 
             </div>
 
             <div className="pt-2">
-              <button
-                onClick={onOpenAdmission}
+              <a
+                href="#contact"
                 className="px-6 py-3 bg-amber-400 hover:bg-amber-500 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wider rounded-xl shadow-lg transition-transform hover:scale-105 cursor-pointer inline-flex items-center gap-2"
               >
-                <span>Enroll in Regular &amp; Quran Program</span>
+                <span>Inquire About Regular &amp; Quran Program</span>
                 <Sparkles className="w-4 h-4 text-slate-950" />
-              </button>
+              </a>
             </div>
           </div>
 
