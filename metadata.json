@@ -1,0 +1,6 @@
+{
+  "name": "The Concept Education System Bijar",
+  "description": "Official website and online admissions portal for The Concept Education System Bijar. Quality education, professional teachers, Quran studies, and holistic development for your children.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
